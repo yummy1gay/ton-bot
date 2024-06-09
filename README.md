@@ -1,7 +1,7 @@
 # ton-bot
 Telegram bot using aiogram v3 that shows the balance of your TON wallet and the latest transactions. It also sends notifications about transactions on your wallet
 
-Телеграм-бот на aiogram v3, который показывает баланс вашего TON кошелька, а также последние транзакции. Он также присылает уведомления о транзакциях на вашем кошельке.
+Телеграм-бот на aiogram v3, который показывает баланс вашего TON кошелька, а также последние транзакции. Он также присылает уведомления о транзакциях на вашем кошельке
 
 ### Installation
 - Clone this git repository.
