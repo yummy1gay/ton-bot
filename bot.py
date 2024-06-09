@@ -82,7 +82,7 @@ async def check_transactions():
                     
                     await send_transaction_notification(events_data["events"][0], wallet_data, balance_ton)
             
-        await asyncio.sleep(30)
+        await asyncio.sleep(5)
 
 async def send_transaction_notification(event, wallet_data, balance_ton):
     transaction_text = f"💸 <b>Новая транзакция:</b>\n"
