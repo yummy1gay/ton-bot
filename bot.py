@@ -46,6 +46,9 @@ async def start(msg: Message):
                 description = event["actions"][0]["simple_preview"]["description"]
                 value = ' '.join(description.split()[1:]) 
                 symbol = "➖" if event["actions"][0]["JettonTransfer"]["sender"]["address"] == wallet_data["address"] else "➕"
+            elif "NftItemTransfer" in event["actions"][0]:
+                value = event["actions"][0]["simple_preview"]["value"]
+                symbol = "➖" if event["actions"][0]["NftItemTransfer"]["sender"]["address"] == wallet_data["address"] else "➕"
             transaction_link = f"{symbol} <b><a href='https://tonscan.org/tx/{event['event_id']}'>{value}</a></b>\n"
             transactions_text += transaction_link
     else:
@@ -91,6 +94,9 @@ async def send_transaction_notification(event, wallet_data, balance_ton):
         description = event["actions"][0]["simple_preview"]["description"]
         value = ' '.join(description.split()[1:]) 
         symbol = "➖" if event["actions"][0]["JettonTransfer"]["sender"]["address"] == wallet_data["address"] else "➕"
+    elif "NftItemTransfer" in event["actions"][0]:
+        value = event["actions"][0]["simple_preview"]["value"]
+        symbol = "➖" if event["actions"][0]["NftItemTransfer"]["sender"]["address"] == wallet_data["address"] else "➕"
     
     transaction_link = f"{symbol} <b><a href='https://tonscan.org/tx/{event['event_id']}'>{value}</a></b>\n"
     balance_text = f"💳 <b>Баланс:</b> <code>{balance_ton:.8f}</code> <b>TON</b>\n\n"
